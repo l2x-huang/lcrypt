@@ -50,25 +50,3 @@ if(${BUILD_TESTS})
     enable_testing()
     add_subdirectory(tests)
 endif()
-
-# install
-install(TARGETS ${CMAKE_PROJECT_NAME}
-  RUNTIME DESTINATION bin
-  LIBRARY DESTINATION lib
-  ARCHIVE DESTINATION lib)
-
-# pack
-include(InstallRequiredSystemLibraries)
-if (CMAKE_HOST_WIN32)
-  set(CPACK_GENERATOR NSIS)
-  set(CPACK_NSIS_MODIFY_PATH ON)
-else ()
-  set(CPACK_GENERATOR ZIP)
-endif()
-
-set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
-set(CPACK_PACKAGE_VENDOR "l2x")
-set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
-# set(CPACK_PACKAGE_FILE_NAME)
-
-include(CPack)
