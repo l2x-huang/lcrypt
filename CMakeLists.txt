@@ -1,12 +1,7 @@
 ﻿# for `FetchContent'
 cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
 
-if (NOT DEFINED ENV{PROJECT_NAME})
-  set(PROJ lcrypt)
-else()
-  set(PROJ $ENV{PROJECT_NAME})
-endif()
-
+set(PROJ lcrypt)
 project(${PROJ} VERSION 0.1.0)
 
 # Point CMake at any custom modules we may ship
@@ -41,7 +36,7 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/out/lib)
 #===========================================================================================
 # Add build options
 #===========================================================================================
-option(BUILD_TESTS "Build and run library tests" ON)
+option(BUILD_TESTS "Build and run library tests" OFF)
 #
 # c++ package manager
 include (CPM)
